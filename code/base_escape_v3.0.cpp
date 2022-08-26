@@ -877,7 +877,7 @@ void shed() {
 			if (Language)
 				cout << "___________________________________________\nTurning on the light, you saw a crowbar lying on a shelf\nYou took a tire iron" << endl;
 			if (!Language)
-				cout << "___________________________________________\nВключив свет, вы увидели монтировку лежащую на полке\nВзять монтировку 1\nУйти 2" << endl;
+				cout << "___________________________________________\nВключив свет, вы увидели монтировку лежащую на полке\nВы взяли монтировку" << endl;
 			isHasCrowbar = true;
 			system("pause");
 			cycle2();
