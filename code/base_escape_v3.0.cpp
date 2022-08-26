@@ -84,6 +84,7 @@ int main() {
 //Старт
 void start() {
 	system("cls");
+	first_start = false;
 	if (Language) {
 		cout << "___________________________________________\nYou woke up in an unknown place. Looks like a basement..." << endl << endl;
 		system("pause");
@@ -131,6 +132,7 @@ void save() {
 		start();
 	}
 	else {
+		first_start = false;
 		isHasKnife = false;
 		isHasKey1 = false;
 		isHasCrowbar = false;
@@ -1658,7 +1660,6 @@ void main_menu() {
 		cout << "Добро пожаловать в мою обновлённую версию base_escape_v3.0\n-------------------------\nСтарт 1\nЗагрузить сохранение 2\nО разработчике 3\nРусский/English 4" << endl;
 	switch (_getch()) {
 	case '1':
-		first_start = false;
 		start();
 		break;
 	case '2':
