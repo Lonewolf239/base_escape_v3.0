@@ -1033,7 +1033,7 @@ void ladder() {
 	if (isHasPlanks) {
 		if (Language)
 			cout << "___________________________________________\nYou put down the plank and fixed it a little with nails\nNow you can go up to the second floor\nEnter 1" << endl;
-		if (Language)
+		if (!Language)
 			cout << "___________________________________________\nВы положили доску и немного закрепили ее гвоздями\nТеперь вы можете подняться на второй этаж\nПодняться 1" << endl;
 		switch (_getch()) {
 		case '1':
