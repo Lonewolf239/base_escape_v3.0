@@ -383,11 +383,11 @@ void door() {
 	if (isHasKey1) {
 		if (Language) {
 			cout << "___________________________________________\nYou inserted the key into the lock and turned... the lock opened and fell to the floor with a clang of metal..." << endl;
-			cout << endl << endl << "Do you want to save your progress?\nYes 1\nNo 2" << endl;
+			cout << "Do you want to save your progress?\nYes 1\nNo 2" << endl;
 		}
 		if (!Language) {
 			cout << "___________________________________________\nВы вставили ключ в замок и повернули... замок открылся и с лязгом металла упал на пол..." << endl;
-			cout << endl << endl << "Ты хочешь сохранить свой прогресс?\nДа 1\nНет 2" << endl;
+			cout << "Ты хочешь сохранить свой прогресс?\nДа 1\nНет 2" << endl;
 		}
 		switch (_getch()) {
 		case '1':
@@ -404,11 +404,12 @@ void door() {
 		}
 	}
 	if (save == 1) {
+		system("cls");
 		ofstream file("C:/Windows/Temp/save.txt");
 		if (file.is_open()) {
 			file << "lx55GZ6dG6eJBl2oh6S0vtXVS3|MsS";
 			file.close();
-			cout << endl << endl << endl << "SAVE SUCCESSFUL" << endl << endl << endl;
+			cout << "SAVE SUCCESSFUL" << endl << endl << endl;
 			system("pause");
 			escape();
 		}
@@ -1042,10 +1043,11 @@ void ladder() {
 		}
 	}
 	if (next == 1) {
+		system("cls");
 		if (Language)
-			cout << endl << endl << "Do you want to save your progress?\nYes 1\nNo 2" << endl;
+			cout << "Do you want to save your progress?\nYes 1\nNo 2" << endl;
 		if (!Language)
-			cout << endl << endl << "Вы хотите сохранить свой прогресс?\nДа 1\nНет 2" << endl;
+			cout << "Вы хотите сохранить свой прогресс?\nДа 1\nНет 2" << endl;
 		switch (_getch()) {
 		case '1':
 			save = 1;
@@ -1064,7 +1066,7 @@ void ladder() {
 		if (file.is_open()) {
 			file << "lx55GZ6dG6eJtl2oh6S0vtXVS3|MsS";
 			file.close();
-			cout << endl << endl << endl << "SAVE SUCCESSFUL" << endl << endl << endl;
+			cout << "SAVE SUCCESSFUL" << endl << endl << endl;
 			system("pause");
 			next2 = 1;
 		}
@@ -1099,7 +1101,7 @@ void ladder() {
 		if (Language)
 			cout << "___________________________________________\nYou ran hard...but tripped over a protruding nail and fell into a hole...\nYOU DIE\n" << endl;
 		if (!Language)
-			cout << "___________________________________________\nВы бежали изо всех сил... но споткнулись о торчащий гвоздь и упали в яму...\nВЫ МЕРТВЫ\n" << endl;
+			cout << "___________________________________________\nВы разбежались изо всех сил... но споткнулись о торчащий гвоздь и упали в яму...\nВЫ МЕРТВЫ\n" << endl;
 		cout << endl << endl << endl << " GGGG    AAAA   MM   MM  EEEEE    OOOO   VV  VV  EEEEE  RRRRR\nGG      AA  AA  MMM MMM  EE      OO  OO  VV  VV  EE     RR  RR\nGG GGG  AAAAAA  MM M MM  EEEE    OO  OO  VV  VV  EEEE   RRRRR\nGG  GG  AA  AA  MM   MM  EE      OO  OO   VVVV   EE     RR  RR\n GGGG   AA  AA  MM   MM  EEEEE    OOOO     VV    EEEEE  RR  RR" << endl << endl << endl;
 		ndeath++;
 		system("pause");
@@ -1656,6 +1658,7 @@ void main_menu() {
 		cout << "Добро пожаловать в мою обновлённую версию base_escape_v3.0\n-------------------------\nСтарт 1\nЗагрузить сохранение 2\nО разработчике 3\nРусский/English 4" << endl;
 	switch (_getch()) {
 	case '1':
+		first_start = false;
 		start();
 		break;
 	case '2':
