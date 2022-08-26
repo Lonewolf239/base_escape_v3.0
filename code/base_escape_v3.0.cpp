@@ -1116,7 +1116,7 @@ void liver() {
 	if (isHasKey2 || isHasPlanks) {
 		if (Language)
 			cout << "___________________________________________\nThere is nothing more interesting here..." << endl;
-		if (Language)
+		if (!Language)
 			cout << "___________________________________________\nЗдесь нет ничего интересного..." << endl;
 		system("pause");
 		cycle3();
