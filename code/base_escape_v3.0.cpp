@@ -1392,7 +1392,7 @@ void cabinet() {
 		if (Language)
 			cout << "___________________________________________\nYou can't...\n-So, teller, wait. What can't you see? Yes, on the other side of the monitor is mentally retarded!\nGod...how stupid do you have to be to open the door without a key to it...I don't want to play like that...I don't want to!..\nYOU DIE" << endl;
 		if (!Language)
-			cout << "___________________________________________\nВы не можете...\n-Итак, рассказчик, подожди. Ты что не видишь? Да по ту сторону монитора умственно отсталый!\nБоже...каким надо быть тупым, чтобы открыть дверь без ключа от нее...я не хочу так играть...не хочу!..\nВЫ МЕРТЫ" << endl;
+			cout << "___________________________________________\nВы не можете...\n-Так, рассказчик, подожди. Ты что не видишь? Да по ту сторону монитора умственно отсталый!\nБоже...каким надо быть тупым, чтобы открыть дверь без ключа от нее...я не хочу так играть...не хочу!..\nВЫ МЕРТЫ" << endl;
 		cout << endl << endl << endl << " GGGG    AAAA   MM   MM  EEEEE    OOOO   VV  VV  EEEEE  RRRRR\nGG      AA  AA  MMM MMM  EE      OO  OO  VV  VV  EE     RR  RR\nGG GGG  AAAAAA  MM M MM  EEEE    OO  OO  VV  VV  EEEE   RRRRR\nGG  GG  AA  AA  MM   MM  EE      OO  OO   VVVV   EE     RR  RR\n GGGG   AA  AA  MM   MM  EEEEE    OOOO     VV    EEEEE  RR  RR" << endl << endl << endl;
 		system("pause");
 		ndeath++;
