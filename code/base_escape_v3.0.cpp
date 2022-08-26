@@ -1565,18 +1565,34 @@ void endgame() {
 	system("cls");
 	char files[5];
 	if (isHasAmongus) {
-		if (Language)
-			cout << endl << endl << "You found AMOGUS! good ending" << endl << endl;
-		if (!Language)
-			cout << endl << endl << "Вы нашли АМОГУСА! хорошая концовка" << endl << endl;
+		if (Language) {
+			cout << "You found AMOGUS! good ending" << endl << endl;
+			cout << "___________________________________________\nYou approached the gate and tied explosives to the lock, set fire to the fuse and fled to the shelter...\nAfter 10 seconds, an explosion sounded\n___________________________________________\nYou crawled out of your hiding place and saw the pieces of the once great gate lying on the ground\nApparently your terrible adventure is over ...\nYou quietly and peacefully went into the sunset (but now it's dawn...)" << endl;
+			system("pause");
+			system("cls");
+			cout << "Do you want to delete save files? y/n" << endl;
+		}
+		if (!Language) {
+			cout << "Вы нашли АМОГУСА! хорошая концовка" << endl << endl;
+			cout << "___________________________________________\nВы подошли к воротам и привязали взрывчатку к замку, подожгли фитиль и убежали в укрытие...\nЧерез 10 секунд раздался взрыв\n________________________________________________________\nВы вылезли из своего укрытия и увидели осколки некогда великих ворот лежащие на земле\nВидимо ваше ужасное приключение закончилось...\nВы тихо и мирно ушли в закат (но сейчас рассвет...)" << endl;
+			system("pause");
+			system("cls");
+			cout << "Вы хотите удалить файлы сохранения? y/n" << endl;
+		}
 	}
-	if (Language) {
-		cout << "___________________________________________\nYou approached the gate and tied explosives to the lock, set fire to the fuse and fled to the shelter...\nAfter 10 seconds, an explosion sounded\n___________________________________________\nYou crawled out of your hiding place and saw the pieces of the once great gate lying on the ground\nApparently your terrible adventure is over ...\nYou quietly and peacefully went into the sunset (but now it's dawn...)\nP.s.\nYou didn't find AMONGUS((( bad ending..." << endl;
-		cout << endl << endl << endl << "Do you want to delete save files? y/n" << endl;
-	}
-	if (!Language) {
-		cout << "___________________________________________\nВы подошли к воротам и привязали взрывчатку к замку, подожгли фитиль и убежали в укрытие...\nЧерез 10 секунд раздался взрыв\n________________________________________________________\nВы вылезли из своего укрытия и увидели осколки некогда великих ворот лежащие на земле\nВидимо ваше ужасное приключение закончилось...\nВы тихо и мирно ушли в закат (но сейчас рассвет...)\nP.s.\nВы не нашли АМОНГУСА((( плохая концовка ..." << endl;
-		cout << endl << endl << endl << "Вы хотите удалить файлы сохранения? y/n" << endl;
+	if(!isHasAmongus) {
+		if (Language) {
+			cout << "___________________________________________\nYou approached the gate and tied explosives to the lock, set fire to the fuse and fled to the shelter...\nAfter 10 seconds, an explosion sounded\n___________________________________________\nYou crawled out of your hiding place and saw the pieces of the once great gate lying on the ground\nApparently your terrible adventure is over ...\nYou quietly and peacefully went into the sunset (but now it's dawn...)\nP.s.\nYou didn't find AMONGUS((( bad ending..." << endl;
+			system("pause");
+			cout << "Do you want to delete save files? y/n" << endl;
+			system("cls");
+		}
+		if (!Language) {
+			cout << "___________________________________________\nВы подошли к воротам и привязали взрывчатку к замку, подожгли фитиль и убежали в укрытие...\nЧерез 10 секунд раздался взрыв\n________________________________________________________\nВы вылезли из своего укрытия и увидели осколки некогда великих ворот лежащие на земле\nВидимо ваше ужасное приключение закончилось...\nВы тихо и мирно ушли в закат (но сейчас рассвет...)\nP.s.\nВы не нашли АМОНГУСА((( плохая концовка ..." << endl;
+			system("pause");
+			system("cls");
+			cout << "Вы хотите удалить файлы сохранения? y/n" << endl;
+		}
 	}
 	cin >> files;
 	if (files[0] == 'Y' || files[0] == 'y' || files[0] == 'D' || files[0] == 'd') {
