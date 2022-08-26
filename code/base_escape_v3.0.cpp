@@ -1283,6 +1283,7 @@ void floor2(int floor2) {
 }
 //цикл фторого этажа
 void cycle4() {
+	system("cls");
 	if (Language) {
 		cout << "___________________________________________\nYou are standing next to the stairs\nCabinet 1\nBedroom 2\nRestroom 3\nAttic 4" << endl;
 		if (isHasFirecracker)
