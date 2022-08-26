@@ -674,10 +674,16 @@ void mansion() {
 	if (next == 1) {
 		system("cls");
 		if (Language) {
-			cout << endl << endl << "Do you want to save your progress?\nYes 1\nNo 2" << endl;
+			cout << "___________________________________________\nYou hit the door with all your foolishness...\nThe door flew out of its hinges and fell to the floor with a crash..." << endl;
+			system("pause");
+			system("cls");
+			cout << "Do you want to save your progress?\nYes 1\nNo 2" << endl;
 		}
 		if (!Language) {
-			cout << endl << endl << "Ты хочешь сохранить свой прогресс?\nДа 1\nНет 2" << endl;
+			cout << "___________________________________________\nВы со всей дури ударили по двери...\nДверь слетела с петель и с грохотом упала на пол..." << endl;
+			system("pause");
+			system("cls");
+			cout << "Ты хочешь сохранить свой прогресс?\nДа 1\nНет 2" << endl;
 		}
 		switch (_getch()) {
 		case '1':
@@ -698,7 +704,7 @@ void mansion() {
 		if (file.is_open()) {
 			file << "lx55GZ6dG6eJ5l2oh6S0vtXVS3|MsS";
 			file.close();
-			cout << endl << endl << endl << "SAVE SUCCESSFUL" << endl << endl << endl;
+			cout << "SAVE SUCCESSFUL" << endl << endl << endl;
 			system("pause");
 			next2 = 1;
 		}
@@ -708,13 +714,11 @@ void mansion() {
 		if (Language) {
 			isHasCrowbar = false;
 			isHasMaul = false;
-			cout << "___________________________________________\nYou hit the door with all your foolishness...\nThe door flew out of its hinges and fell to the floor with a crash..." << endl;
 			cout << "___________________________________________\nYou entered a huge lobby... there was a large T-shaped staircase in its center... the first thing that caught your attention:\nStaircase 1\nLounge 2\nKitchen 3\nStorage 4" << endl;
 		}
 		if (!Language) {
 			isHasCrowbar = false;
 			isHasMaul = false;
-			cout << "___________________________________________\nВы со всей дури ударили по двери...\nДверь слетела с петель и с грохотом упала на пол..." << endl;
 			cout << "___________________________________________\nВы вошли в огромный вестибюль... в его центре была большая Т-образная лестница... первое, что привлекло ваше внимание:\nЛестница 1\nГостинная 2\nКухня 3\nКладовка 4" << endl;
 		}
 		switch (_getch()) {
@@ -1153,10 +1157,14 @@ void kitchen() {
 	system("cls");
 	if (Language) {
 		cout << "___________________________________________\nEntering the kitchen, you saw... the kitchen is AMAZING...\nThere is a lot of food on the table...the air smells of freshly cooked food...\nYou really wanted to eat\nGoing to the table, you were unable to stop\nSitting at the table and when you start eating you immediately feel how delicious this food is" << endl;
+		system("pause");
+		system("cls");
 		cout << "_____________________________________\nYou have been sitting and eating for about 10 minutes, when suddenly you felt a blow to your back, and then unbearable pain...\nAfter that, someone grabbed you and threw you to the floor...\nBefore you died, you only managed to see an ax flying at you\nYOU DIE" << endl;
 	}
 	if (!Language) {
 		cout << "___________________________________________\nЗайдя на кухню, вы увидели... кухню УДИВИТЕЛЬНО...\nНа столе стояло много еды...в воздухе ведает аромат свежеприготовленной едой...\nВам очень захотелось есть\nПодходя к столу, вы не смогли остановиться\nСев за стол и попробовав еду, вы поняли насколько она вкусная" << endl;
+		system("pause");
+		system("cls");
 		cout << "_____________________________________\nВы сидели и ели около 10 минут, как вдруг почувствовали удар в спину, а затем невыносимую боль...\nПосле этого кто-то схватил вас и швырнул на пол...\nПеред смертью вы успели увидеть только летящий в вас топор\nВЫ МЕРТВЫ" << endl;
 	}
 	cout << endl << endl << "          DDDDD    OOOO       NN  NN   OOOO   TTTTTT\n          DD  DD  OO  OO      NNN NN  OO  OO    TT\n          DD  DD  OO  OO      NN NNN  OO  OO    TT\n          DD  DD  OO  OO      NN  NN  OO  OO    TT\n          DDDDD    OOOO       NN  NN   OOOO     TT" << endl << endl;
