@@ -865,6 +865,7 @@ void shed() {
 			cout << "___________________________________________\nThere is nothing more interesting here..." << endl;
 		if (!Language)
 			cout << "___________________________________________\nЗдесь нет ничего интересного..." << endl;
+		system("pause");
 		cycle2();
 	}
 	if (!isHasCrowbar) {
