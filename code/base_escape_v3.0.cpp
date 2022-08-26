@@ -738,7 +738,7 @@ void mansion() {
 	if (!isHasMaul) {
 		if (Language)
 			cout << "___________________________________________\nYou examined the door of the mansion... it seems to be closed on the other side..." << endl;
-		if (Language)
+		if (!Language)
 			cout << "___________________________________________\nВы осмотрели дверь особняка... кажется, она закрыта с другой стороны..." << endl;
 		system("pause");
 		cycle2();
