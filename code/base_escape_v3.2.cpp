@@ -5,7 +5,7 @@
 
 using namespace std;
 
-int ndeath = 0;
+int ndeath = 0, nsave = 0;
 bool Language = true;
 bool first_start = true;
 //инвентарь часть 1
@@ -75,7 +75,7 @@ int main() {
 		cout << "IIIIII  NN  NN\n  II    NNN NN\n  II    NN NNN\n  II    NN  NN\nIIIIII  NN  NN" << endl << endl;
 		cout << "BBBBB    AAAA    SSSS   EEEEE\nBB  BB  AA  AA  SS      EE\nBBBBB   AAAAAA   SSSS   EEEE\nBB  BB  AA  AA      SS  EE\nBBBBB   AA  AA   SSSS   EEEEE" << endl << endl;
 		cout << "EEEEE   SSSS    CCCC    AAAA   PPPPP   EEEEE\nEE     SS      CC  CC  AA  AA  PP  PP  EE\nEEEE    SSSS   CC      AAAAAA  PPPPP   EEEE\nEE         SS  CC  CC  AA  AA  PP      EE\nEEEEE   SSSS    CCCC   AA  AA  PP      EEEEE" << endl << endl;
-		cout << " 3333        0000\n3   33      00  00\n  333       00  00\n3   33      00  00\n 3333   **   0000" << endl;
+		cout << " 3333        2222\n3   33      22  22\n  333          22\n3   33       22\n 3333   **  222222" << endl;
 		system("pause");
 	}
 	main_menu();
@@ -412,6 +412,7 @@ void door() {
 			file << "lx55GZ6dG6eJBl2oh6S0vtXVS3|MsS";
 			file.close();
 			cout << "SAVE SUCCESSFUL" << endl << endl << endl;
+			nsave++;
 			system("pause");
 			escape();
 		}
@@ -708,6 +709,7 @@ void mansion() {
 			file << "lx55GZ6dG6eJ5l2oh6S0vtXVS3|MsS";
 			file.close();
 			cout << "SAVE SUCCESSFUL" << endl << endl << endl;
+			nsave++;
 			system("pause");
 			next2 = 1;
 		}
@@ -1069,6 +1071,7 @@ void ladder() {
 			file << "lx55GZ6dG6eJtl2oh6S0vtXVS3|MsS";
 			file.close();
 			cout << "SAVE SUCCESSFUL" << endl << endl << endl;
+			nsave++;
 			system("pause");
 			next2 = 1;
 		}
@@ -1564,6 +1567,22 @@ void attic() {
 void endgame() {
 	system("cls");
 	char files[5];
+	if (nsave == 0) {
+		if (Language)
+			cout << "===========================================\n          Achievement earned:\n         Save is for the weak!\n===========================================" << endl;
+		if (!Language)
+			cout << "===========================================\n          Получено достижение:\n        Сохранения для слабаков!\n===========================================" << endl;
+		system("pause");
+		system("cls");
+	}
+	if (ndeath == 0) {
+		if (Language)
+			cout << "===========================================\n          Achievement earned:\n       Guided by the right path...\n===========================================" << endl;
+		if (!Language)
+			cout << "===========================================\n          Получено достижение:\n        Ведомый верными путями...\n===========================================" << endl;
+		system("pause");
+		system("cls");
+	}
 	if (isHasAmongus) {
 		if (Language) {
 			cout << "You found AMOGUS! good ending" << endl << endl;
@@ -1672,9 +1691,9 @@ void main_menu() {
 	system("cls");
 	cout << "-----------------base_escape_v3.0-----------------" << endl << endl;
 	if (Language)
-		cout << "Welcome to my updated version of base_escape_v3.0\n-------------------------\nStart 1\nLoad save 2\nAbout the developer 3\nРусский/English 4" << endl;
+		cout << "Welcome to my updated version of base_escape_v3.2\n-------------------------\nStart 1\nLoad save 2\nAbout the developer 3\nРусский/English 4" << endl;
 	if (!Language)
-		cout << "Добро пожаловать в мою обновлённую версию base_escape_v3.0\n-------------------------\nСтарт 1\nЗагрузить сохранение 2\nО разработчике 3\nРусский/English 4" << endl;
+		cout << "Добро пожаловать в мою обновлённую версию base_escape_v3.2\n-------------------------\nСтарт 1\nЗагрузить сохранение 2\nО разработчике 3\nРусский/English 4" << endl;
 	switch (_getch()) {
 	case '1':
 		start();
