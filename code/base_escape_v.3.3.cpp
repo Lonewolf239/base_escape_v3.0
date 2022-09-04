@@ -5,7 +5,9 @@
 
 using namespace std;
 
-int ndeath = 0, nsave = 0;
+//основные настройки и достижения
+int ndeath = 0, nsave = 0, nmoves = 0, achi = 0;
+bool achievements1 = false, achievements2 = false, achievements3 = false, achievements4 = false, achievements5 = false;
 bool Language = true;
 bool first_start = true;
 //инвентарь часть 1
@@ -65,6 +67,8 @@ void main_menu();
 void endgame();
 void levels();
 void Developer();
+void updet_list();
+void achievements();
 
 //main
 int main() {
@@ -75,7 +79,7 @@ int main() {
 		cout << "IIIIII  NN  NN\n  II    NNN NN\n  II    NN NNN\n  II    NN  NN\nIIIIII  NN  NN" << endl << endl;
 		cout << "BBBBB    AAAA    SSSS   EEEEE\nBB  BB  AA  AA  SS      EE\nBBBBB   AAAAAA   SSSS   EEEE\nBB  BB  AA  AA      SS  EE\nBBBBB   AA  AA   SSSS   EEEEE" << endl << endl;
 		cout << "EEEEE   SSSS    CCCC    AAAA   PPPPP   EEEEE\nEE     SS      CC  CC  AA  AA  PP  PP  EE\nEEEE    SSSS   CC      AAAAAA  PPPPP   EEEE\nEE         SS  CC  CC  AA  AA  PP      EE\nEEEEE   SSSS    CCCC   AA  AA  PP      EEEEE" << endl << endl;
-		cout << " 3333        2222\n3   33      22  22\n  333          22\n3   33       22\n 3333   **  222222" << endl;
+		cout << " 3333        3333\n3   33      3   33\n  333         333\n3   33      3   33\n 3333   **   3333" << endl;
 		system("pause");
 	}
 	main_menu();
@@ -105,15 +109,19 @@ void start() {
 	}
 	switch (_getch()) {
 	case '1':
+		nmoves++;
 		location(1);
 		break;
 	case '2':
+		nmoves++;
 		location(2);
 		break;
 	case '3':
+		nmoves++;
 		location(3);
 		break;
 	case '4':
+		nmoves++;
 		location(4);
 		break;
 	default:
@@ -150,24 +158,32 @@ void save() {
 		if (sae[12] == 'B') {
 			cout << "LOADING SAVE..." << endl << endl;
 			cout << "SAVE LOADED SUCCESSFULLY" << endl << endl;
+			nsave = 1;
+			nmoves = 12;
 			system("pause");
 			cycle2();
 		}
 		if (sae[12] == '5') {
 			cout << "LOADING SAVE..." << endl << endl;
 			cout << "SAVE LOADED SUCCESSFULLY" << endl << endl;
+			nsave = 2;
+			nmoves = 24;
 			system("pause");
 			cycle3();
 		}
 		if (sae[12] == 't') {
 			cout << "LOADING SAVE..." << endl << endl;
 			cout << "SAVE LOADED SUCCESSFULLY" << endl << endl;
+			nsave = 3;
+			nmoves = 36;
 			system("pause");
 			cycle4();
 		}
 		if (sae[16] == 'F') {
 			cout << "LOADING SAVE..." << endl << endl;
 			cout << "SAVE LOADED SUCCESSFULLY" << endl << endl;
+			nsave = 3;
+			nmoves = 48;
 			system("pause");
 			levels();
 		}
@@ -175,6 +191,7 @@ void save() {
 }
 //подвал
 void location(int loc) {
+	nmoves++;
 	system("cls");
 	if (loc == 1) {
 		if (Language)
@@ -250,6 +267,7 @@ void location(int loc) {
 }
 //цикл подвала
 void cycle1() {
+	nmoves++;
 	system("cls");
 	if (Language) {
 		cout << "___________________________________________\nYou are standing in the center of the basement...\nWindow 1\nCloset 2\nDoor 3\nCarpet 4" << endl;
@@ -285,6 +303,7 @@ void cycle1() {
 }
 //окно
 void window() {
+	nmoves++;
 	system("cls");
 	if (isHasKey1) {
 		cout << "		 SSSS    AAAA   UU  UU  LL\n		SS      AA  AA  UU  UU  LL\n		 SSSS   AAAAAA  UU  UU  LL\n		    SS  AA  AA  UU  UU  LL\n		 SSSS   AA  AA   UUUU   LLLLLL" << endl << endl;
@@ -308,9 +327,11 @@ void close(int cl) {
 			cout << "___________________________________________\nВы открыли верхний ящик... он пуст\nОткрыть нижний 1\nУйти 2" << endl;
 		switch (_getch()) {
 		case '1':
+			nmoves++;
 			close(2);
 			break;
 		case '2':
+			nmoves++;
 			cycle1();
 			break;
 		default:
@@ -325,6 +346,7 @@ void close(int cl) {
 			cout << "___________________________________________\nВы открыли нижний ящик... он пуст\nУйти 1" << endl;
 		switch (_getch()) {
 		case '1':
+			nmoves++;
 			cycle1();
 			break;
 		default:
@@ -339,6 +361,7 @@ void close(int cl) {
 			cout << "___________________________________________\nВы открыли нижний ящик... он пуст\nУйти 1" << endl;
 		switch (_getch()) {
 		case '1':
+			nmoves++;
 			cycle1();
 			break;
 		default:
@@ -353,6 +376,7 @@ void close(int cl) {
 			cout << "___________________________________________\nВы открыли нижний ящик... там нож\nВзять нож 1\nУйти 2" << endl;
 		switch (_getch()) {
 		case '1':
+			nmoves++;
 			isHasKnife = true;
 			if (Language)
 				cout << "___________________________________________\nYou took a knife..." << endl;
@@ -362,6 +386,7 @@ void close(int cl) {
 			cycle1();
 			break;
 		case '2':
+			nmoves++;
 			cycle1();
 			break;
 		default:
@@ -393,10 +418,12 @@ void door() {
 		}
 		switch (_getch()) {
 		case '1':
+			nmoves++;
 			save = 1;
 			isHasKey1 = false;
 			break;
 		case '2':
+			nmoves++;
 			isHasKey1 = false;
 			escape();
 			break;
@@ -429,6 +456,7 @@ void carpter() {
 		switch (_getch())
 		{
 		case '1':
+			nmoves++;
 			isHasKey1 = true;
 			isHasKnife = false;
 			if (Language)
@@ -439,6 +467,7 @@ void carpter() {
 			cycle1();
 			break;
 		case '2':
+			nmoves++;
 			cycle1();
 			break;
 		default:
@@ -461,6 +490,7 @@ void carpter() {
 			cout << "___________________________________________\nВы сели на ковёр и почувствовали, что под ним что-то есть...\nРазрезать 1\nУйти 2" << endl;
 		switch (_getch()) {
 		case '1':
+			nmoves++;
 			if (Language)
 				cout << "___________________________________________\nYou can't do it..." << endl;
 			if (!Language)
@@ -469,6 +499,7 @@ void carpter() {
 			cycle1();
 			break;
 		case '2':
+			nmoves++;
 			cycle1();
 			break;
 		default:
@@ -479,6 +510,7 @@ void carpter() {
 }
 //побег из подвала
 void escape() {
+	nmoves++;
 	system("cls");
 	if (Language) {
 		cout << "When you opened the door, a stream of fresh night wind immediately flew into your face, and the dim night light filled the room.\nConvinced that everything was safe, you went outside.\nIt was a wonderful cloudless night, which made the whole courtyard perfectly visible.\nYour attention was immediately attracted a large mansion in the center of the courtyard.\nLooking closer, you find:" << endl;
@@ -509,6 +541,7 @@ void escape() {
 
 //двор
 void yard(int yr) {
+	nmoves++;
 	system("cls");
 	if (yr == 1) {
 		if (Language)
@@ -590,12 +623,15 @@ void cycle2() {
 		switch (_getch())
 		{
 		case '1':
+			nmoves++;
 			yard(2);
 			break;
 		case '2':
+			nmoves++;
 			yard(3);
 			break;
 		case '3':
+			nmoves++;
 			yard(4);
 			break;
 		default:
@@ -621,15 +657,19 @@ void cycle2() {
 		switch (_getch())
 		{
 		case '1':
+			nmoves++;
 			yard(1);
 			break;
 		case '2':
+			nmoves++;
 			yard(2);
 			break;
 		case '3':
+			nmoves++;
 			yard(3);
 			break;
 		case '4':
+			nmoves++;
 			yard(4);
 			break;
 		default:
@@ -649,6 +689,7 @@ void mansion() {
 			cout << "___________________________________________\nЗакрыто с другой стороны...\nПопробовать открыть 1\nУйти 2" << endl;
 		switch (_getch()) {
 		case '1':
+			nmoves++;
 			if (Language)
 				cout << "___________________________________________\nNothing succeeded..." << endl;
 			if (!Language)
@@ -657,6 +698,10 @@ void mansion() {
 			cycle2();
 			break;
 		case '2':
+			nmoves++;
+			cycle2();
+			break;
+		default:
 			cycle2();
 			break;
 		}
@@ -668,9 +713,14 @@ void mansion() {
 			cout << "___________________________________________\nЗакрыто с другой стороны...\nПопробовать открыть 1\nУйти 2" << endl;
 		switch (_getch()) {
 		case '1':
+			nmoves++;
 			next = 1;
 			break;
 		case '2':
+			nmoves++;
+			cycle2();
+			break;
+		default:
 			cycle2();
 			break;
 		}
@@ -691,10 +741,12 @@ void mansion() {
 		}
 		switch (_getch()) {
 		case '1':
+			nmoves++;
 			save = 1;
 			system("cls");
 			break;
 		case '2':
+			nmoves++;
 			next2 = 1;
 			break;
 		default:
@@ -728,15 +780,19 @@ void mansion() {
 		}
 		switch (_getch()) {
 		case '1':
+			nmoves++;
 			floor1(1);
 			break;
 		case '2':
+			nmoves++;
 			floor1(2);
 			break;
 		case '3':
+			nmoves++;
 			floor1(3);
 			break;
 		case '4':
+			nmoves++;
 			floor1(4);
 			break;
 		default:
@@ -766,6 +822,7 @@ void gate() {
 			cout << "___________________________________________\nВы со всей дури ударили по замку...замок разлетелся вдребезги...вы открыли ворота\nСбежать 1" << endl;
 		switch (_getch()) {
 		case '1':
+			nmoves++;
 			system("cls");
 			system("explorer https://youtu.be/dQw4w9WgXcQ");
 			cout << endl << endl << "	IIIIII   WW   WW   AAAA    SSSS\n	  II     WW   WW  AA  AA  SS\n	  II     WW W WW  AAAAAA   SSSS\n	  II     WWWWWWW  AA  AA      SS\n	IIIIII    WW WW   AA  AA   SSSS" << endl << endl;
@@ -777,6 +834,8 @@ void gate() {
 			system("pause");
 			cycle2();
 			break;
+		default:
+			gate();
 		}
 	}
 	if (isHasCrowbar) {
@@ -786,6 +845,7 @@ void gate() {
 			cout << "___________________________________________\nВы пытались снять его монтировкой... безрезультатно.\nУйти 1" << endl;
 		switch (_getch()) {
 		case '1':
+			nmoves++;
 			cycle2();
 			break;
 		default:
@@ -800,6 +860,7 @@ void gate() {
 			cout << "___________________________________________\nОсмотрев замок, вы поняли... что он давно проржавевший, но очень прочный...\nУйти 1" << endl;
 		switch (_getch()) {
 		case '1':
+			nmoves++;
 			cycle2();
 			break;
 		default:
@@ -826,6 +887,7 @@ void house() {
 			cout << "___________________________________________\nПоднявшись по лестнице на небольшой балкон, вы увидели, что вход в дом заколочен досками...\nПопробовать оторвать доски 1\nУйти 2" << endl;
 		switch (_getch()) {
 		case '1':
+			nmoves++;
 			if (Language)
 				cout << "___________________________________________\nCompletely sick?! How can I tear the boards off with my bare hands?.." << endl;
 			if (!Language)
@@ -834,6 +896,7 @@ void house() {
 			cycle2();
 			break;
 		case '2':
+			nmoves++;
 			cycle2();
 			break;
 		default:
@@ -848,6 +911,7 @@ void house() {
 			cout << "___________________________________________\nПоднявшись по лестнице на небольшой балкон, вы увидели, что вход в дом заколочен досками...\nПопробовать оторвать доски 1\nУйти 2" << endl;
 		switch (_getch()) {
 		case '1':
+			nmoves++;
 			if (Language)
 				cout << "___________________________________________\nAfter tearing off the boards and going inside, you saw a small box...\nYou found a sledgehammer...but since the crowbar was very rusty, it broke with a bang in the middle..." << endl;
 			if (!Language)
@@ -858,6 +922,7 @@ void house() {
 			cycle2();
 			break;
 		case '2':
+			nmoves++;
 			cycle2();
 			break;
 		default:
@@ -884,6 +949,7 @@ void shed() {
 			cout << "___________________________________________\nВы открыли дверь и зашли внутрь...вы ничего не видите...снова\nВключить свет 1\nУйти 2" << endl;
 		switch (_getch()) {
 		case '1':
+			nmoves++;
 			if (Language)
 				cout << "___________________________________________\nTurning on the light, you saw a crowbar lying on a shelf\nYou took a tire iron" << endl;
 			if (!Language)
@@ -893,6 +959,7 @@ void shed() {
 			cycle2();
 			break;
 		case '2':
+			nmoves++;
 			cycle2();
 			break;
 		default:
@@ -904,6 +971,7 @@ void shed() {
 
 //первый этаж
 void floor1(int floor1) {
+	nmoves++;
 	system("cls");
 	if (floor1 == 1) {
 		if (!isHasPlanks) {
@@ -1012,15 +1080,19 @@ void cycle3() {
 	}
 	switch (_getch()) {
 	case '1':
+		nmoves++;
 		floor1(1);
 		break;
 	case '2':
+		nmoves++;
 		floor1(2);
 		break;
 	case '3':
+		nmoves++;
 		floor1(3);
 		break;
 	case '4':
+		nmoves++;
 		floor1(4);
 		break;
 	default:
@@ -1039,6 +1111,7 @@ void ladder() {
 			cout << "___________________________________________\nВы положили доску и немного закрепили ее гвоздями\nТеперь вы можете подняться на второй этаж\nПодняться 1" << endl;
 		switch (_getch()) {
 		case '1':
+			nmoves++;
 			next = 1;
 			break;
 		default:
@@ -1054,9 +1127,11 @@ void ladder() {
 			cout << "Вы хотите сохранить свой прогресс?\nДа 1\nНет 2" << endl;
 		switch (_getch()) {
 		case '1':
+			nmoves++;
 			save = 1;
 			break;
 		case '2':
+			nmoves++;
 			next2 = 1;
 			break;
 		default:
@@ -1086,15 +1161,19 @@ void ladder() {
 		isHasPlanks = false;
 		switch (_getch()) {
 		case '1':
+			nmoves++;
 			floor2(1);
 			break;
 		case '2':
+			nmoves++;
 			floor2(2);
 			break;
 		case '3':
+			nmoves++;
 			floor2(3);
 			break;
 		case '4':
+			nmoves++;
 			floor2(4);
 			break;
 		default:
@@ -1131,6 +1210,7 @@ void liver() {
 			cout << "___________________________________________\nВойдя в гостиную, вы увидели большой овальный стол с кучей стульев.\nПодойдя поближе, вы обнаружили большой праздничный торт.\nВыглядит аппетитно.\nПопробовать торт 1\nНе пробовать торт 2." << endl;
 		switch (_getch()) {
 		case '1':
+			nmoves++;
 			if (Language)
 				cout << "___________________________________________\nYou've tasted the cake...and it's damn delicious!..although with some strange aftertaste\nYour stomach hurts sharply...\nYou feel unbearable pain...\nYOU DIE" << endl;
 			if (!Language)
@@ -1145,6 +1225,7 @@ void liver() {
 			break;
 
 		case '2':
+			nmoves++;
 			if (Language)
 				cout << "___________________________________________\nYou decided not to eat this rubbish, because CAKE IS A LIE...\nSo you took it and threw the cake on the floor\nThere was a key under the cake" << endl;
 			if (!Language)
@@ -1161,6 +1242,7 @@ void liver() {
 }
 //кухня
 void kitchen() {
+	nmoves++;
 	system("cls");
 	if (Language) {
 		cout << "___________________________________________\nEntering the kitchen, you saw... the kitchen is AMAZING...\nThere is a lot of food on the table...the air smells of freshly cooked food...\nYou really wanted to eat\nGoing to the table, you were unable to stop\nSitting at the table and when you start eating you immediately feel how delicious this food is" << endl;
@@ -1183,6 +1265,7 @@ void kitchen() {
 }
 //подсобка
 void utroom() {
+	nmoves++;
 	if (isHasPlanks) {
 		if (Language)
 			cout << "___________________________________________\nThere is nothing interesting here anymore" << endl;
@@ -1214,6 +1297,7 @@ void utroom() {
 
 //второй этаж
 void floor2(int floor2) {
+	nmoves++;
 	system("cls");
 	if (floor2 == 1) {
 		if (Language)
@@ -1311,15 +1395,19 @@ void cycle4() {
 	}
 	switch (_getch()) {
 	case '1':
+		nmoves++;
 		floor2(1);
 		break;
 	case '2':
+		nmoves++;
 		floor2(2);
 		break;
 	case '3':
+		nmoves++;
 		floor2(3);
 		break;
 	case '4':
+		nmoves++;
 		floor2(4);
 		break;
 	default:
@@ -1344,6 +1432,7 @@ void cabinet() {
 			cout << "___________________________________________\nВы вошли в кабинет... на полках не хватает пары книг... но теперь они у вас есть\nКак их поставить?\nСиняя - справа; Красная - слева 1\nСиняя - слева; Красная - справа 2" << endl;
 		switch (_getch()) {
 		case '1':
+			nmoves++;
 			if (Language)
 				cout << "___________________________________________\nThe books moved into place... when suddenly a small box crawled out of the wall... there was a firecracker and a lighter in it" << endl;
 			if (!Language)
@@ -1354,6 +1443,7 @@ void cabinet() {
 			cycle4();
 			break;
 		case '2':
+			nmoves++;
 			if (Language)
 				cout << "___________________________________________\nThe books moved...but immediately flew out and fell to the floor...the door to the study slammed shut...\nApparently you should have watched the Matrix more carefully\nYOU DIE" << endl;
 			if (!Language)
@@ -1383,6 +1473,7 @@ void cabinet() {
 			cout << "___________________________________________\nВы открыли дверь и вошли в просторную комнату... это был темный готический кабинет с кучей книжных полок\nКажется, что на одной из полок не хватает пары книг...\nВыходя, вы нажали какой-то рычаг на стене...кажется что где-то открылась дверь...\nУйти 1" << endl;
 		switch (_getch()) {
 		case '1':
+			nmoves++;
 			isHasKey3 = false;
 			bedroomOpen = true;
 			cycle4();
@@ -1421,6 +1512,7 @@ void bedroom() {
 			cout << "___________________________________________\nВы вошли в просторную спальню... осмотрев спальню, вы нашли:\nКниги лежащие на кровати 1\nШкаф 2\nУйти 3" << endl;
 		switch (_getch()) {
 		case '1':
+			nmoves++;
 			if (Language)
 				cout << "___________________________________________\nYou took the books and hurried out of the bedroom" << endl;
 			if (!Language)
@@ -1431,6 +1523,7 @@ void bedroom() {
 			cycle4();
 			break;
 		case '2':
+			nmoves++;
 			if (Language)
 				cout << "___________________________________________\nYou were looking at an old wardrobe...when you suddenly heard someone's footsteps in the corridor...\nYou opened it and climbed into the wardrobe...as soon as you entered, the doors closed...you tried to open them, but failed\nIn some then a long wide spike began to drive out from below...\nYOU DIE" << endl;
 			if (!Language)
@@ -1441,6 +1534,7 @@ void bedroom() {
 			main();
 			break;
 		case '3':
+			nmoves++;
 			cycle4();
 			break;
 		default:
@@ -1467,6 +1561,7 @@ void restroom() {
 			cout << "___________________________________________\nАМОГУС?!?!\nИзучить 1" << endl;
 		switch (_getch()) {
 		case '1':
+			nmoves++;
 			isHasAmongus = true;
 			system("explorer https://youtu.be/T59N3DPrvac");
 			system("pause");
@@ -1479,6 +1574,7 @@ void restroom() {
 			cout << "___________________________________________\nThere is nothing more interesting here..." << endl;
 		if (!Language)
 			cout << "___________________________________________\nЗдесь нет ничего интересного..." << endl;
+		nmoves++;
 		system("pause");
 		cycle4();
 	}
@@ -1489,6 +1585,7 @@ void restroom() {
 			cout << "___________________________________________\nВы вошли в комнату отдыха...это была просторная комната с несколькими диванами и кое-каким спортивным инвентарем\nСреди всего этого хлама вы заметили лежащий на диване ключ\nВзять ключ 1\nУйти 2" << endl;
 		switch (_getch()) {
 		case '1':
+			nmoves++;
 			if (Language)
 				cout << "___________________________________________\nYou have taken the key..." << endl;
 			if (!Language)
@@ -1498,6 +1595,7 @@ void restroom() {
 			cycle4();
 			break;
 		case '2':
+			nmoves++;
 			cycle4();
 			break;
 		default:
@@ -1516,6 +1614,7 @@ void attic() {
 			cout << "___________________________________________\nВы осторожно открыли люк...\nБросить петарду 1\nУйти 2" << endl;
 		switch (_getch()) {
 		case '1':
+			nmoves++;
 			if (Language)
 				cout << "___________________________________________\nYou set it on fire and threw a firecracker into the attic, closed the hatch...\nThere was an explosion, and then the infernal spawn burst out screaming...when everything was quiet, you climbed into the attic\nIn the center of the attic lay a large box...it contained some explosives" << endl;
 			if (!Language)
@@ -1530,6 +1629,7 @@ void attic() {
 			cycle2();
 			break;
 		case '2':
+			nmoves++;
 			cycle4();
 			break;
 		default:
@@ -1544,6 +1644,7 @@ void attic() {
 			cout << "___________________________________________\nВы аккуратно заглянули на чердак...там полно летучих мышей...\nЗабраться 1\nУйти 2" << endl;
 		switch (_getch()) {
 		case '1':
+			nmoves++;
 			if (Language)
 				cout << "___________________________________________\nYou climbed into the attic and closed the hatch behind you...bats immediately attacked you...\nThey inflicted heavy injuries on you with each attack...\nYOU DIE" << endl;
 			if (!Language)
@@ -1554,6 +1655,7 @@ void attic() {
 			main();
 			break;
 		case '2':
+			nmoves++;
 			cycle4();
 			break;
 		default:
@@ -1567,19 +1669,48 @@ void attic() {
 void endgame() {
 	system("cls");
 	char files[5];
+	if (nmoves < 50) {
+		if (Language)
+			cout << "===========================================\n          Achievement earned:\n              Speedrunner\n  Complete the game in less than 50 moves\n===========================================" << endl;
+		if (!Language)
+			cout << "==========================================\n           Получено достижение:\n                Спидранер\n    Пройти игру меньше чем за 50 ходов\n==========================================" << endl;
+		achievements5 = true;
+		system("pause");
+		system("cls");
+	}
+	if (nmoves > 100) {
+		if (Language)
+			cout << "===========================================\n          Achievement earned:\n        Look under every stone...\n Complete the game in more than 100 moves\n===========================================" << endl;
+		if (!Language)
+			cout << "===========================================\n           Получено достижение:\n        Заглянуть под каждый камень...\n    Пройти игру больше чем за 100 ходов\n===========================================" << endl;
+		achievements4 = true;
+		system("pause");
+		system("cls");
+	}
 	if (nsave == 0) {
 		if (Language)
-			cout << "===========================================\n          Achievement earned:\n         Save is for the weak!\n===========================================" << endl;
+			cout << "===========================================\n          Achievement earned:\n         Save is for the weak!\n    Complete the game without saving\n===========================================" << endl;
 		if (!Language)
-			cout << "===========================================\n          Получено достижение:\n        Сохранения для слабаков!\n===========================================" << endl;
+			cout << "===========================================\n          Получено достижение:\n        Сохранения для слабаков!\n         Ни разу не сохраниться\n===========================================" << endl;
+		achievements3 = true;
 		system("pause");
 		system("cls");
 	}
 	if (ndeath == 0) {
 		if (Language)
-			cout << "===========================================\n          Achievement earned:\n       Guided by the right path...\n===========================================" << endl;
+			cout << "===========================================\n          Achievement earned:\n       Guided by the right path...\n    Complete the game without dying\n===========================================" << endl;
 		if (!Language)
-			cout << "===========================================\n          Получено достижение:\n        Ведомый верными путями...\n===========================================" << endl;
+			cout << "===========================================\n          Получено достижение:\n        Ведомый верными путями...\n           Ни разу не умереть\n===========================================" << endl;
+		achievements2 = true;
+		system("pause");
+		system("cls");
+	}
+	if (nsave == 3) {
+		if (Language)
+			cout << "===========================================\n          Achievement earned:\n                Coward!\n             Save 3 times\n===========================================" << endl;
+		if (!Language)
+			cout << "===========================================\n          Получено достижение:\n               Трусишка!\n           Сохраниться 3 раза\n===========================================" << endl;
+		achievements1 = true;
 		system("pause");
 		system("cls");
 	}
@@ -1599,7 +1730,7 @@ void endgame() {
 			cout << "Вы хотите удалить файлы сохранения? y/n" << endl;
 		}
 	}
-	if(!isHasAmongus) {
+	if (!isHasAmongus) {
 		if (Language) {
 			cout << "___________________________________________\nYou approached the gate and tied explosives to the lock, set fire to the fuse and fled to the shelter...\nAfter 10 seconds, an explosion sounded\n___________________________________________\nYou crawled out of your hiding place and saw the pieces of the once great gate lying on the ground\nApparently your terrible adventure is over ...\nYou quietly and peacefully went into the sunset (but now it's dawn...)\nP.s.\nYou didn't find AMONGUS((( bad ending..." << endl;
 			system("pause");
@@ -1650,6 +1781,9 @@ void endgame() {
 	isHasFirecracker = false;
 	isHasAmongus = false;
 	first_start = true;
+	ndeath = 0;
+	nsave = 0;
+	nmoves = 0;
 	main();
 }
 
@@ -1657,9 +1791,9 @@ void endgame() {
 void levels() {
 	system("cls");
 	if (Language)
-		cout << "What location do you want to go to?\nBasement 1\nYard 2\nMansion floor first 3\nMansion floor second 4" << endl;
+		cout << "What location do you want to go to?\nBasement 1\nYard 2\nMansion floor first 3\nMansion floor second 4\n=========================\nBack to menu 5" << endl;
 	if (!Language)
-		cout << "В какую локацию хотите попасть?\nПодвал 1\nДвор 2\nПервый этаж особняка 3\nВторой этаж особняка 4" << endl;
+		cout << "В какую локацию хотите попасть?\nПодвал 1\nДвор 2\nПервый этаж особняка 3\nВторой этаж особняка 4\n=========================\nВернуться в меню 5" << endl;
 	switch (_getch()) {
 	case '1':
 		cycle1();
@@ -1672,6 +1806,9 @@ void levels() {
 		break;
 	case '4':
 		cycle4();
+		break;
+	case '5':
+		main_menu();
 		break;
 	default:
 		levels();
@@ -1689,11 +1826,14 @@ void language() {
 //меню
 void main_menu() {
 	system("cls");
-	cout << "-----------------base_escape_v3.0-----------------" << endl << endl;
-	if (Language)
-		cout << "Welcome to my updated version of base_escape_v3.2\n-------------------------\nStart 1\nLoad save 2\nAbout the developer 3\nРусский/English 4" << endl;
-	if (!Language)
-		cout << "Добро пожаловать в мою обновлённую версию base_escape_v3.2\n-------------------------\nСтарт 1\nЗагрузить сохранение 2\nО разработчике 3\nРусский/English 4" << endl;
+	if (Language) {
+		cout << "=================base_escape_v3.3=================" << endl << endl;
+		cout << "Welcome to my updated version of base_escape_v3.3\n==================================================\n                       Start 1\n                     Load save 2\n                About the developer 3\n                  Русский/English 4\n              =========================\n                    Changes list 5\n                    Achievements 6\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n" << endl;
+	}
+	if (!Language) {
+		cout << "======================base_escape_v3.3======================" << endl << endl;
+		cout << "Добро пожаловать в мою обновлённую версию base_escape_v3.3\n============================================================\n                           Старт 1\n                   Загрузить сохранение 2\n                        Разработчик 3\n                      Русский/English 4\n              ==================================\n                      Список изменений 5\n                         Достижения 6\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n" << endl;
+	}
 	switch (_getch()) {
 	case '1':
 		start();
@@ -1706,6 +1846,12 @@ void main_menu() {
 		break;
 	case '4':
 		language();
+		break;
+	case '5':
+		updet_list();
+		break;
+	case '6':
+		achievements();
 		break;
 	default:
 		main_menu();
@@ -1720,6 +1866,39 @@ void Developer() {
 		cout << "Мои соц. сети:\n___________________________\nDiscord: Bubba#4211\nVK: @1blitz01\nTelegram: @an1onimes\n___________________________" << endl << endl;
 	if (Language)
 		cout << "My social networks:\n___________________________\nDiscord: Bubba#4211\nVK: @1blitz01\nTelegram: @an1onimes\n___________________________" << endl << endl;
+	system("pause");
+	main_menu();
+}
+
+//список обновления
+void updet_list() {
+	system("cls");
+	if (Language)
+		cout << "==========================================\n             List of changes:\n==========================================\n*Added new achievements\n*Explanation added to existing achievements\n*New menu items 'Changes list' and 'Achievements'\n*Some cosmetic updates\n\n==========================================\n        Plans for future updates:\n==========================================\n*Adding new locations: Forest, Killer Village\n*Change starting locations: Basement, Yard" << endl << endl << endl;
+	if (!Language)
+		cout << "==========================================\n            Список изменений:\n==========================================\n*Добавлены новые достижения\n*К существующим достижениям добавлено пояснение\n*Новые пункты в меню 'Список изменений' и 'Достижения'\n*Некоторые косметические обновления\n\n==========================================\n        Планы на будущие обновления:\n==========================================\n*Добавление новых локаций: Лес, Деревня Убийц\n*Изменение начальных локаций: Подвал, Двор" << endl << endl << endl;
+	system("pause");
+	main_menu();
+}
+
+//достижения
+void achievements() {
+	system("cls");
+	string do1 = "X", do2 = "X", do3 = "X", do4 = "X", do5 = "X";
+	if (achievements1)
+		do1 = "DONE";
+	if (achievements2)
+		do2 = "DONE";
+	if (achievements3)
+		do3 = "DONE";
+	if (achievements4)
+		do4 = "DONE";
+	if (achievements5)
+		do5 = "DONE";
+	if (Language)
+		cout << "============Achievements============\nCoward!                       (" << do1 << ")\nGuided by the right path...   (" << do2 << ")\nSave is for the weak!         (" << do3 << ")\nLook under every stone...     (" << do4 << ")\nSpeedrunner                   (" << do5 << ")" << endl << endl;
+	if (!Language)
+		cout << "===============Достижения===============\nТрусишка!                         (" << do1 << ")\nВедомый верными путями...         (" << do2 << ")\nСохранения для слабаков!          (" << do3 << ")\nЗаглянуть под каждый камень...    (" << do4 << ")\nСпидранер                         (" << do5 << ")" << endl << endl;
 	system("pause");
 	main_menu();
 }
