@@ -62,6 +62,9 @@ void bedroom();
 void restroom();
 void attic();
 
+//костыли функций (часть 5)
+void forest();
+
 void language();
 void main_menu();
 void endgame();
@@ -90,6 +93,9 @@ void start() {
 	system("cls");
 	first_start = false;
 	if (Language) {
+		cout << "\n\n\n\n\n\n\n\n\n          =============================\n          |                           |\n          |    Chapter 1. Basement.   |\n          |                           |\n          =============================\n\n\n\n\n\n\n\n\n\n\n\n" << endl << endl;
+		system("pause");
+		system("cls");
 		cout << "___________________________________________\nYou woke up in an unknown place. Looks like a basement..." << endl << endl;
 		system("pause");
 		system("cls");
@@ -99,6 +105,9 @@ void start() {
 		cout << "___________________________________________\nLooking around AT FEEL, you realized that it was a small room...\nYou found:\nWindow 1\nCloset 2\nDoor 3\nCarpet 4" << endl << endl;
 	}
 	if (!Language) {
+		cout << "\n\n\n\n\n\n\n\n\n          =============================\n          |                           |\n          |      Глава 1. Подвал.     |\n          |                           |\n          =============================\n\n\n\n\n\n\n\n\n\n\n\n" << endl << endl;
+		system("pause");
+		system("cls");
 		cout << "___________________________________________\nТы проснулся в неизвестном месте. Напоминает подвал..." << endl << endl;
 		system("pause");
 		system("cls");
@@ -513,10 +522,16 @@ void escape() {
 	nmoves++;
 	system("cls");
 	if (Language) {
+		cout << "\n\n\n\n\n\n\n\n\n          =============================\n          |                           |\n          |      Chapter 2. Yard.     |\n          |                           |\n          =============================\n\n\n\n\n\n\n\n\n\n\n\n" << endl << endl;
+		system("pause");
+		system("cls");
 		cout << "When you opened the door, a stream of fresh night wind immediately flew into your face, and the dim night light filled the room.\nConvinced that everything was safe, you went outside.\nIt was a wonderful cloudless night, which made the whole courtyard perfectly visible.\nYour attention was immediately attracted a large mansion in the center of the courtyard.\nLooking closer, you find:" << endl;
 		cout << "Mansion 1\nGate 2\nTreehouse 3\nShed 4" << endl;
 	}
 	if (!Language) {
+		cout << "\n\n\n\n\n\n\n\n\n          =============================\n          |                           |\n          |       Глава 2. Двор.      |\n          |                           |\n          =============================\n\n\n\n\n\n\n\n\n\n\n\n" << endl << endl;
+		system("pause");
+		system("cls");
 		cout << "Открыв дверь, тебе в лицо сразу же ударил поток свежего ночного воздуха, и тусклый ночной свет залил комнату.\nУбедившись, что все в безопасности, вы вышли на улицу.\nЭто была чудесная безоблачная ночь, от чего двор был прекрасно виден.\nВаше внимание сразу же привлек большой особняк в центре двора.\nПриглядевшись, вы нашли:" << endl;
 		cout << "Особняк 1\nВорота 2\nДомик на дереве 3\nНебольшой сарайчик 4" << endl;
 	}
@@ -769,11 +784,17 @@ void mansion() {
 	if (next2 == 1) {
 		system("cls");
 		if (Language) {
+			cout << "\n\n\n\n\n\n\n\n\n          =============================\n          |                           |\n          |  Chapter 3. First floor.  |\n          |                           |\n          =============================\n\n\n\n\n\n\n\n\n\n\n\n" << endl << endl;
+			system("pause");
+			system("cls");
 			isHasCrowbar = false;
 			isHasMaul = false;
 			cout << "___________________________________________\nYou entered a huge lobby... there was a large T-shaped staircase in its center... the first thing that caught your attention:\nStaircase 1\nLounge 2\nKitchen 3\nStorage 4" << endl;
 		}
 		if (!Language) {
+			cout << "\n\n\n\n\n\n\n\n\n          =============================\n          |                           |\n          |   Глава 3. Первый этаж.   |\n          |                           |\n          =============================\n\n\n\n\n\n\n\n\n\n\n\n" << endl << endl;
+			system("pause");
+			system("cls");
 			isHasCrowbar = false;
 			isHasMaul = false;
 			cout << "___________________________________________\nВы вошли в огромный вестибюль... в его центре была большая Т-образная лестница... первое, что привлекло ваше внимание:\nЛестница 1\nГостинная 2\nКухня 3\nКладовка 4" << endl;
@@ -813,6 +834,7 @@ void mansion() {
 void gate() {
 	system("cls");
 	if (isHasExplosives) {
+		//forest();
 		endgame();
 	}
 	if (isHasMaul) {
@@ -1153,10 +1175,18 @@ void ladder() {
 	}
 	if (next2 == 1) {
 		system("cls");
-		if (Language)
+		if (Language) {
+			cout << "\n\n\n\n\n\n\n\n\n          =============================\n          |                           |\n          |  Chapter 4. Second floor. |\n          |                           |\n          =============================\n\n\n\n\n\n\n\n\n\n\n\n" << endl << endl;
+			system("pause");
+			system("cls");
 			cout << "___________________________________________\nYou climbed to the second floor...the floor creaked under your feet, but looking around you found:\nCabinet 1\nBedroom 2\nRestroom 3\nAttic 4" << endl;
-		if (!Language)
+		}
+		if (!Language) {
+			cout << "\n\n\n\n\n\n\n\n\n          =============================\n          |                           |\n          |   Глава 4. Второй этаж.   |\n          |                           |\n          =============================\n\n\n\n\n\n\n\n\n\n\n\n" << endl << endl;
+			system("pause");
+			system("cls");
 			cout << "___________________________________________\nВы залезли на второй этаж...пол скрипел под вашими ногами, осмотревшись вы нашли:\nКабинет 1\nСпяльню 2\nКомнату отдыха 3\nЧердак 4" << endl;
+		}
 		isHasKey2 = false;
 		isHasPlanks = false;
 		switch (_getch()) {
@@ -1662,6 +1692,21 @@ void attic() {
 			cycle4();
 			break;
 		}
+	}
+}
+
+//лес
+void forest() {
+	system("cls");
+	if(Language) {
+		cout << "\n\n\n\n\n\n\n\n\n          =============================\n          |                           |\n          |     Chapter 5. Forest.    |\n          |                           |\n          =============================\n\n\n\n\n\n\n\n\n\n\n\n" << endl << endl;
+		system("pause");
+		system("cls");
+	}
+	if(!Language) {
+		cout << "\n\n\n\n\n\n\n\n\n          =============================\n          |                           |\n          |        Глава 5. Лес.      |\n          |                           |\n          =============================\n\n\n\n\n\n\n\n\n\n\n\n" << endl << endl;
+		system("pause");
+		system("cls");
 	}
 }
 
